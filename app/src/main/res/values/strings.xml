@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Life Changer Earning</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="resend_otp_again"><u>RESEND OTP</u></string>
+
+    <!--  admob ads id  -->
+    <string name="APP_ID">ca-app-pub-3940256099942544~3347511713</string>
+    <string name="ADMOB_UNIT_ID">ca-app-pub-3940256099942544/5224354917</string>
+    <string name="terms">Information technology (IT) is the use of computers to create, process, store, and exchange all kinds of electronic data[1] and information. IT is typically used within the context of business operations as opposed to personal or entertainment technologies.[2] IT is considered to be a subset of information and communications technology (ICT). An information technology system (IT system) is generally an information system, a communications system, or, more specifically speaking, a computer system.</string>
+
+</resources>

@@ -1,0 +1,53 @@
+package com.enfotrix.life_changer_services;
+
+import android.content.Context;
+import android.content.SharedPreferences;
+
+public class Utils {
+
+    public SharedPreferences sharedPreferences;
+    public static final String MyPREFERENCES = "MyPrefs";
+    public static final String Token = "Token";
+    public static final String SmsNotifi = "SmsNotifi";
+    public static final String FormStatus = "FormStatus";
+
+
+    public Utils(Context context) {
+        sharedPreferences = context.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+    }
+
+    public String getToken() {
+        return sharedPreferences.getString(Token, "");
+    }
+
+    public void putToken(String token) {
+        sharedPreferences.edit().putString(Token, token).commit();
+    }
+
+    public void putIsWatch(Boolean value) {
+        sharedPreferences.edit().putBoolean(SmsNotifi, value).commit();
+    }
+
+    public Boolean getIsWatch() {
+        return sharedPreferences.getBoolean(SmsNotifi, false);
+    }
+
+    public void putIsBuy(Boolean value) {
+        sharedPreferences.edit().putBoolean(FormStatus, value).commit();
+    }
+
+    public Boolean getISBuy() {
+        return sharedPreferences.getBoolean(FormStatus, false);
+    }
+
+    public void logout() {
+        sharedPreferences.edit().putString(Token, "logout").commit();
+    }
+
+    public boolean isLoggedIn() {
+        boolean LoggedIn = true;
+        if (getToken().equals("logout") || getToken().isEmpty()) LoggedIn = false;
+        return LoggedIn;
+    }
+
+}

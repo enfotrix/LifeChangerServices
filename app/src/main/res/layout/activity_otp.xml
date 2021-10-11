@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/splash"
+    android:gravity="center"
+    tools:context=".Activities.ActivityOtp">
+
+    <TextView
+        android:id="@+id/co"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/roboto"
+        android:text="CO"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_50sdp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/de"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/co"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/roboto"
+        android:text="DE"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_50sdp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/veri"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/de"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/roboto"
+        android:text="VERIFICATION"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12ssp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/otpsent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/veri"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_50sdp"
+        android:fontFamily="@font/roboto"
+        android:text="Enter One Time Password sent on"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_16sdp"
+        android:textStyle="italic" />
+
+    <TextView
+        android:id="@+id/text_otpNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/otpsent"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:text=""
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="@dimen/_16ssp"
+        android:textStyle="italic" />
+
+    <LinearLayout
+        android:id="@+id/optlay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_otpNumber"
+        android:layout_marginTop="25dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/opt1"
+            android:layout_width="48dp"
+            android:layout_height="46dp"
+            android:background="@drawable/otp_numberbg"
+            android:gravity="center"
+            android:imeOptions="actionNext"
+            android:inputType="number"
+            android:maxLength="1"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            tools:ignore="Labelfor" />
+
+        <EditText
+            android:id="@+id/opt2"
+            android:layout_width="48dp"
+            android:layout_height="46dp"
+            android:layout_marginLeft="3dp"
+            android:background="@drawable/otp_numberbg"
+            android:gravity="center"
+            android:imeOptions="actionNext"
+            android:inputType="number"
+            android:maxLength="1"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            tools:ignore="Labelfor" />
+
+        <EditText
+            android:id="@+id/opt3"
+            android:layout_width="48dp"
+            android:layout_height="46dp"
+            android:layout_marginLeft="3dp"
+            android:background="@drawable/otp_numberbg"
+            android:gravity="center"
+            android:imeOptions="actionNext"
+            android:inputType="number"
+            android:maxLength="1"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            tools:ignore="Labelfor" />
+
+        <EditText
+            android:id="@+id/opt4"
+            android:layout_width="48dp"
+            android:layout_height="46dp"
+            android:layout_marginLeft="3dp"
+            android:background="@drawable/otp_numberbg"
+            android:gravity="center"
+            android:imeOptions="actionNext"
+            android:inputType="number"
+            android:maxLength="1"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            tools:ignore="Labelfor" />
+
+        <EditText
+            android:id="@+id/opt5"
+            android:layout_width="48dp"
+            android:layout_height="46dp"
+            android:layout_marginLeft="3dp"
+            android:background="@drawable/otp_numberbg"
+            android:gravity="center"
+            android:imeOptions="actionNext"
+            android:inputType="number"
+            android:maxLength="1"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            tools:ignore="Labelfor" />
+
+        <EditText
+            android:id="@+id/opt6"
+            android:layout_width="48dp"
+            android:layout_height="46dp"
+            android:layout_marginLeft="3dp"
+            android:background="@drawable/otp_numberbg"
+            android:gravity="center"
+            android:imeOptions="actionNext"
+            android:inputType="number"
+            android:maxLength="1"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            tools:ignore="Labelfor" />
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_otp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/optlay"
+        android:layout_marginLeft="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_25sdp"
+        android:layout_marginRight="@dimen/_15sdp"
+        android:background="@color/teal_700"
+        android:text="Verify Code"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_14ssp" />
+
+    <TextView
+        android:id="@+id/notrec"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_otp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="15dp"
+        android:textSize="@dimen/_14sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_5sdp"
+        android:fontFamily="@font/roboto"
+        android:text="Did not receive the OTP ?"
+        android:textColor="@color/black"
+        android:textStyle="bold" />
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_otp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_toRightOf="@+id/notrec">
+
+        <TextView
+            android:id="@+id/resendotp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/resend_otp_again"
+            android:textColor="@drawable/clickable_text_back"
+            android:textColorHint="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/countTimer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/resend_otp_again"
+            android:textColor="@drawable/clickable_text_back"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:visibility="gone" />
+    </FrameLayout>
+
+    <com.github.ybq.android.spinkit.SpinKitView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/progressBa_splash"
+        style="@style/SpinKitView.Wave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/notrec"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_15sdp"
+        app:SpinKit_Color="@color/teal_700" />
+
+</RelativeLayout>

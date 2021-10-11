@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.enfotrix.life_changer_services">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/appicon"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.LifeChangerServices">
+        <activity android:name=".Activities.Activity_AccountInformation"></activity>
+        <activity android:name=".OnlineEarning.Activity_WithDraw" />
+        <activity android:name=".OnlineEarning.Activity_YoutubeVideo" />
+        <activity android:name=".Activities.Activity_Notification" />
+        <activity android:name=".Activities.Activity_Transaction" />
+        <activity android:name=".Activities.Activity_Profile" />
+        <activity android:name=".Activities.ActivityOtp" />
+        <activity android:name=".OnlineEarning.Activity_SpinWin" />
+        <activity android:name=".OnlineEarning.Activity_Scratch" />
+        <activity android:name=".OnlineStore.ActivityItem" />
+        <activity android:name=".OnlineStore.ActivityProduct" />
+        <activity android:name=".Activities.ActivityResetPassword" />
+        <activity android:name=".Activities.ActivitySignup" />
+        <activity android:name=".Activities.ActivityForgetPasswordAuth" />
+        <activity android:name=".Activities.ActivityLogin">
+
+        </activity>
+        <activity android:name=".Activities.Activity_Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Activities.MainActivity">
+
+        </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-3940256099942544~3347511713" />
+    </application>
+
+</manifest>
