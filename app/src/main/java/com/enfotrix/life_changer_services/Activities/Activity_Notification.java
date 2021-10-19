@@ -25,7 +25,7 @@ import java.util.List;
 
 public class Activity_Notification extends AppCompatActivity {
 
-    TextView txt_transtatus;
+    //TextView txt_transtatus;
     private FirebaseFirestore firestore;
     private Utils utils;
     List<Model_Notification> list_Announ = new ArrayList<>();
@@ -56,10 +56,13 @@ public class Activity_Notification extends AppCompatActivity {
             }
         });
 
-        gettranstatus();
+        //gettranstatus();
     }
 
     private void fetchNotifi(String token) {
+
+        utils.startLoading();
+        list_Announ.clear();
 
         firestore.collection("Customer").document(token)
                 .collection("Notifications").get()
@@ -85,6 +88,7 @@ public class Activity_Notification extends AppCompatActivity {
 
                             Toast.makeText(getApplicationContext(), "Connection Error", Toast.LENGTH_SHORT).show();
                         }
+                        utils.endLoading();
                     }
                 });
     }
@@ -102,12 +106,12 @@ public class Activity_Notification extends AppCompatActivity {
 
                                 if (document.getString("status").equals("request")) {
 
-                                    txt_transtatus.setText("Your transaction ID and Amount submitted to admin.Please wait for Approvel!");
+                                    //txt_transtatus.setText("Your transaction ID and Amount submitted to admin.Please wait for Approvel!");
                                 }
 
                                 if (document.getString("status").equals("approve")) {
 
-                                    txt_transtatus.setText("Your transaction approved by admin.Thank you for buying membership!");
+                                    //txt_transtatus.setText("Your transaction approved by admin.Thank you for buying membership!");
 
                                 }
 
@@ -123,7 +127,7 @@ public class Activity_Notification extends AppCompatActivity {
 
     private void iniviews() {
 
-        txt_transtatus = findViewById(R.id.txt_transtatus);
+        //txt_transtatus = findViewById(R.id.txt_transtatus);
 
     }
 }

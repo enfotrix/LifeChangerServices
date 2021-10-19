@@ -85,12 +85,7 @@ public class ActivitySignup extends AppCompatActivity implements View.OnClickLis
                 edit_Email.setError(null);
             }
         });
-        edit_address.getEditText().setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                edit_address.setError(null);
-            }
-        });
+
         edit_password.getEditText().setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
@@ -165,14 +160,12 @@ public class ActivitySignup extends AppCompatActivity implements View.OnClickLis
         String user_name = edit_Full_Name.getEditText().getText().toString().trim();
         String user_email = edit_Email.getEditText().getText().toString().trim();
         String user_password = edit_password.getEditText().getText().toString().trim();
-        String user_address = edit_address.getEditText().getText().toString().trim();
         String user_referral = edit_yourreferral.getEditText().getText().toString().trim();
 
         Intent otpscreen = new Intent(getApplicationContext(), Activity_AccountInformation.class);
         otpscreen.putExtra("user_name", user_name);
         otpscreen.putExtra("user_email", user_email);
         otpscreen.putExtra("user_password", user_password);
-        otpscreen.putExtra("user_address", user_address);
         otpscreen.putExtra("user_number", completenumber);
         otpscreen.putExtra("referralcode", referralcode);
         otpscreen.putExtra("user_referral", user_referral);
@@ -198,8 +191,6 @@ public class ActivitySignup extends AppCompatActivity implements View.OnClickLis
             edit_Layphone.setError("Please Enter Phone Number");
         else if (edit_Email.getEditText().getText().toString().isEmpty())
             edit_Email.setError("Please Enter Email");
-        else if (edit_address.getEditText().getText().toString().isEmpty())
-            edit_address.setError("Please Enter Address");
         else if (edit_password.getEditText().getText().toString().isEmpty())
             edit_password.setError("Please Enter Password");
         else if (edit_Confrim_Password.getEditText().getText().toString().isEmpty())

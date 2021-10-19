@@ -40,7 +40,7 @@ public class ActivityOtp extends AppCompatActivity implements View.OnClickListen
     TextView text_otpNumber;
     AppCompatButton btn_otp;
     EditText opt1, opt2, opt3, opt4, opt5, opt6;
-    String uName, uEmail, uNMBR, uPassword, uAddress, ac_name, ac_bank, ac_number,
+    String uName, uEmail, uNMBR, uPassword, ac_name, ac_bank, ac_number,
             uCnic, verficationCode, referralcode, user_referral;
     ProgressBar progressBar;
     TextView shownumber, resendotp, countTimer;
@@ -121,7 +121,6 @@ public class ActivityOtp extends AppCompatActivity implements View.OnClickListen
         uEmail = getIntent().getStringExtra("user_email");
         uNMBR = getIntent().getStringExtra("user_number");
         uPassword = getIntent().getStringExtra("user_password");
-        uAddress = getIntent().getStringExtra("user_address");
         referralcode = getIntent().getStringExtra("referralcode");
         user_referral = getIntent().getStringExtra("user_referral");
 
@@ -356,10 +355,12 @@ public class ActivityOtp extends AppCompatActivity implements View.OnClickListen
         map.put("name", uName);
         map.put("number", uNMBR);
         map.put("email", uEmail);
-        map.put("address", uAddress);
         map.put("password", uPassword);
         map.put("userReferral", user_referral);
+        map.put("picture", "");
+        map.put("membership", "pending");
         map.put("autoReferral", referralcode);
+
 
         map.put("ac_title", ac_name);
         map.put("ac_bank", ac_bank);
@@ -374,7 +375,9 @@ public class ActivityOtp extends AppCompatActivity implements View.OnClickListen
         wrongreferral.put("name", uName);
         wrongreferral.put("number", uNMBR);
         wrongreferral.put("email", uEmail);
-        wrongreferral.put("address", uAddress);
+        wrongreferral.put("address", "");
+        wrongreferral.put("picture", "");
+        wrongreferral.put("membership", "pending");
         wrongreferral.put("password", uPassword);
         wrongreferral.put("autoReferral", referralcode);
 

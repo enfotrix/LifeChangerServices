@@ -11,7 +11,7 @@
         android:id="@+id/toolbr"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/teal_700"
+        android:background="@color/teal_200"
         android:gravity="center">
 
         <TextView
@@ -20,7 +20,6 @@
             android:layout_marginHorizontal="@dimen/_8sdp"
             android:fontFamily="@font/roboto"
             android:text="Scratch And Win"
-            android:textColor="@color/black_m"
             android:textSize="@dimen/_18ssp" />
     </LinearLayout>
 
@@ -160,7 +159,7 @@
                     android:layout_gravity="center"
                     android:fontFamily="@font/roboto"
                     android:gravity="center"
-                    android:text="15 Coin"
+                    android:text="1 Coin"
                     android:textColor="@color/teal_700"
                     android:textSize="@dimen/_14ssp" />
 

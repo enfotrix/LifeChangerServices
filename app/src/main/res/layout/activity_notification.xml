@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F1F0F0"
+    android:background="@color/gray"
+    android:orientation="vertical"
     tools:context=".Activities.Activity_Notification">
 
-    <LinearLayout
-        android:id="@+id/toolbr"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/teal_700">
 
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        app:cardElevation="@dimen/_3sdp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -21,82 +21,46 @@
             android:text="Notifications"
             android:textColor="@color/black_m"
             android:textSize="@dimen/_18ssp" />
-    </LinearLayout>
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cvt"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_80sdp"
-        android:layout_below="@+id/toolbr"
-        android:layout_marginHorizontal="@dimen/_16sdp"
-        android:layout_marginVertical="@dimen/_16sdp"
-        app:cardCornerRadius="@dimen/_16sdp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/_12sdp"
-                android:layout_marginVertical="@dimen/_10sdp"
-                android:text="Transaction Status"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_14ssp" />
-
-            <TextView
-                android:id="@+id/txt_transtatus"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/_12sdp"
-                android:text="Transaction Status"
-                android:textColor="@color/black_m"
-                android:textSize="@dimen/_14ssp" />
-        </LinearLayout>
 
     </androidx.cardview.widget.CardView>
 
-    <LinearLayout
-        android:paddingTop="@dimen/_10sdp"
-        android:background="@drawable/notification_bg"
+
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/swiperefresh"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/cvt">
+        android:layout_marginTop="@dimen/_3sdp"
+        android:layout_below="@+id/layoutt">
 
-        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/swiperefresh"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/layoutt">
+            android:layout_height="?attr/actionBarSize"
+            android:orientation="vertical">
 
-            <LinearLayout
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:orientation="vertical">
+                android:layout_height="match_parent">
 
-                <ScrollView
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:orientation="vertical">
 
-                    <LinearLayout
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/list_Announ"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
+                        android:layout_height="wrap_content" />
 
-                        <androidx.recyclerview.widget.RecyclerView
-                            android:id="@+id/list_Announ"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
+                </LinearLayout>
+            </ScrollView>
 
-                    </LinearLayout>
-                </ScrollView>
+        </LinearLayout>
 
-            </LinearLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-    </LinearLayout>
-
-</RelativeLayout>
+</LinearLayout>

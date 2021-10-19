@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.mmoamenn:LuckyWheel_Android:0.3.0@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5f0f85e3a1397dd2dac22360b01a99e4/LuckyWheel_Android-0.3.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5f0f85e3a1397dd2dac22360b01a99e4/LuckyWheel_Android-0.3.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5f0f85e3a1397dd2dac22360b01a99e4/LuckyWheel_Android-0.3.0/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.mmoamenn/LuckyWheel_Android/0.3.0/6c1db0506b5c00441552e5211eb461c73a290390/LuckyWheel_Android-0.3.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

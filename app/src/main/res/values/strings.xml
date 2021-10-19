@@ -7,6 +7,16 @@
     <!--  admob ads id  -->
     <string name="APP_ID">ca-app-pub-3940256099942544~3347511713</string>
     <string name="ADMOB_UNIT_ID">ca-app-pub-3940256099942544/5224354917</string>
-    <string name="terms">Information technology (IT) is the use of computers to create, process, store, and exchange all kinds of electronic data[1] and information. IT is typically used within the context of business operations as opposed to personal or entertainment technologies.[2] IT is considered to be a subset of information and communications technology (ICT). An information technology system (IT system) is generally an information system, a communications system, or, more specifically speaking, a computer system.</string>
+    <string name="terms">
+        1) App price is 500 <br></br>
+        2) On earning activity and upon your referalls you would get coins which would be converted into rupees.<br></br>
+        3. The price of coin would change on the basis of changing of the rate of dollar.<br></br>
+        4. The company can change its policies whenever it wants you would have no argument upon it <br></br>
+        5. You got 200 by making your direct refferal.<br></br>
+        6. On second level you would get 20 and on third or  fourth you would get 10 pkr.<br></br>
+        7. Your collected coins will be converted on the rupees whene you claim them <br></br>
+        8. The withdraw will be given to you in 3-7 working days <br></br>
+        9. For doing any of the fraud your account would be block and your balance would be  confiscated.
+    </string>
 
 </resources>

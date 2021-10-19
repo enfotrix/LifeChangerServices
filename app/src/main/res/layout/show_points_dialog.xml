@@ -10,7 +10,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_margin="@dimen/_8sdp"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:layout_marginBottom="@dimen/_8sdp"
         android:orientation="vertical"
         android:padding="@dimen/_10sdp">
 
@@ -41,7 +44,7 @@
             android:layout_gravity="center"
             android:layout_margin="@dimen/_4sdp"
             android:gravity="center"
-            android:text="15 Coin"
+            android:text="1 Coin"
             android:textColor="@color/black"
             android:textSize="@dimen/_12ssp"
             android:textStyle="bold" />

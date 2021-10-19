@@ -1,51 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/gray"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".Activities.Activity_AccountInformation">
 
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        app:cardElevation="@dimen/_3sdp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginHorizontal="@dimen/_12sdp"
+            android:text="Account"
+            android:textColor="@color/black_m"
+            android:textSize="@dimen/_18ssp" />
+
+    </androidx.cardview.widget.CardView>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/teal_700"
-            android:orientation="vertical"
-            android:paddingVertical="5dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:text="Edit Account"
-                android:textColor="@color/black_m"
-                android:textSize="25dp"
-                android:textStyle="bold"></TextView>
 
-        </LinearLayout>
+
+
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:background="@color/teal_700"
             android:gravity="center_horizontal"
             android:paddingHorizontal="20dp"
             android:paddingVertical="3dp"
-            android:text="Using this account information, EFU (admin) will send your money against your withdraw request"
-            android:textColor="@color/black_m"
+            android:text="Using this account information, company will send your money against your withdraw request"
             android:textSize="17dp"></TextView>
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="200dp"
             android:src="@drawable/account_bg"></ImageView>
+
+
 
         <EditText
             android:id="@+id/edit_acBank"
@@ -63,7 +66,6 @@
             android:paddingTop="5sp"
             android:paddingEnd="15dp"
             android:paddingBottom="5dp"
-            android:textColor="@color/black"
             android:textColorHint="@color/black_m"></EditText>
 
         <EditText
@@ -82,7 +84,6 @@
             android:paddingTop="5sp"
             android:paddingEnd="15dp"
             android:paddingBottom="5dp"
-            android:textColor="@color/black"
             android:textColorHint="@color/black_m"></EditText>
 
 
@@ -102,7 +103,6 @@
             android:paddingTop="5sp"
             android:paddingEnd="15dp"
             android:paddingBottom="5dp"
-            android:textColor="@color/black"
             android:textColorHint="@color/black_m"></EditText>
 
 
@@ -120,4 +120,4 @@
     </LinearLayout>
 
 
-</ScrollView>
+</LinearLayout>

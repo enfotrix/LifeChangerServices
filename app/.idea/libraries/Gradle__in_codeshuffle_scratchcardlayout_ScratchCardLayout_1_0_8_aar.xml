@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Gradle: in.codeshuffle.scratchcardlayout:ScratchCardLayout:1.0.8@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/71665717b6620be20ac736698d880c58/ScratchCardLayout-1.0.8/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/71665717b6620be20ac736698d880c58/ScratchCardLayout-1.0.8/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/71665717b6620be20ac736698d880c58/ScratchCardLayout-1.0.8/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/in.codeshuffle.scratchcardlayout/ScratchCardLayout/1.0.8/fc77099f66b08a012aba2a379b87da304830139a/ScratchCardLayout-1.0.8-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/in.codeshuffle.scratchcardlayout/ScratchCardLayout/1.0.8/fcc1f084760af06d8cca80bc5c806daedad00b78/ScratchCardLayout-1.0.8-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

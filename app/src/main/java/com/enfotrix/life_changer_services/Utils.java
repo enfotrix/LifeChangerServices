@@ -10,11 +10,20 @@ public class Utils {
     public static final String Token = "Token";
     public static final String SmsNotifi = "SmsNotifi";
     public static final String FormStatus = "FormStatus";
+    final lottiedialog lottie;//=new lottiedialog(getContext());
 
 
     public Utils(Context context) {
         sharedPreferences = context.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+        lottie=new lottiedialog(context);
     }
+    public void startLoading(){
+        lottie.show();
+    }
+    public void endLoading(){
+        lottie.dismiss();
+    }
+
 
     public String getToken() {
         return sharedPreferences.getString(Token, "");

@@ -68,7 +68,7 @@ public class Activity_Transaction extends AppCompatActivity implements View.OnCl
     private void addtransaction(String transaction, String amount) {
 
         DocumentReference documentReference = firestore.collection("Customer").document(utils.getToken())
-                .collection("Transactions").document();
+                .collection("Transactions").document(utils.getToken());
         Map<String, Object> map = new HashMap<>();
         map.put("tid", transaction);
         map.put("amount", amount);

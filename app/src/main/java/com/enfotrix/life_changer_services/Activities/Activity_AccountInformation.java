@@ -36,7 +36,6 @@ public class Activity_AccountInformation extends AppCompatActivity {
                     intent.putExtra("user_name", getIntent().getStringExtra("user_name"));
                     intent.putExtra("user_email", getIntent().getStringExtra("user_email"));
                     intent.putExtra("user_password", getIntent().getStringExtra("user_password"));
-                    intent.putExtra("user_address", getIntent().getStringExtra("user_address"));
                     intent.putExtra("user_number", getIntent().getStringExtra("user_number"));
                     intent.putExtra("referralcode", getIntent().getStringExtra("referralcode"));
                     intent.putExtra("user_referral", getIntent().getStringExtra("user_referral"));
