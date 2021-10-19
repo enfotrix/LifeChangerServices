@@ -101,7 +101,7 @@ public class Activity_Profile extends AppCompatActivity implements View.OnClickL
 
 
                         firestore.collection("Customer").document(utils.getToken())
-                                .collection("Transactions").document( ).get()
+                                .collection("Transactions").document( utils.getToken()).get()
                                 .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                                     @Override
                                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
