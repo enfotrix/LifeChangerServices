@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/gray"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".Activities.Activity_AccountInformation">
 
@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
         app:cardElevation="@dimen/_3sdp">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -22,15 +23,11 @@
             android:textSize="@dimen/_18ssp" />
 
     </androidx.cardview.widget.CardView>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-
-
-
-
-
 
 
         <TextView
@@ -49,24 +46,35 @@
             android:src="@drawable/account_bg"></ImageView>
 
 
-
-        <EditText
-            android:id="@+id/edit_acBank"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtLayy_weather"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="40dp"
-            android:layout_marginTop="10sp"
+            android:layout_marginTop="@dimen/_12sdp"
             android:background="@drawable/card_shadow"
-            android:elevation="@dimen/_20sdp"
-            android:foregroundTint="@color/teal_200"
-            android:hint="Bank/JazzCash/Easypaisa"
-            android:inputType="text"
-            android:minHeight="55dp"
+            android:hint="Select Bank"
             android:paddingStart="15dp"
             android:paddingTop="5sp"
             android:paddingEnd="15dp"
             android:paddingBottom="5dp"
-            android:textColorHint="@color/black_m"></EditText>
+            android:textColorHint="@color/black"
+            app:hintTextColor="@color/black"
+            app:startIconDrawable="@drawable/ic_baseline_credit_card_24"
+            app:startIconTint="@color/teal_700">
+
+            <AutoCompleteTextView
+                android:id="@+id/edit_acBank"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/card_shadow"
+                android:enabled="false"
+                android:inputType="none"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12sdp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
 
         <EditText
             android:id="@+id/edit_acName"
@@ -115,7 +123,7 @@
             android:layout_marginTop="10dp"
             android:background="@drawable/btn_bg"
             android:elevation="16dp"
-            android:text="Next"
+            android:text="Save"
             android:textColor="@color/white"></androidx.appcompat.widget.AppCompatButton>
     </LinearLayout>
 

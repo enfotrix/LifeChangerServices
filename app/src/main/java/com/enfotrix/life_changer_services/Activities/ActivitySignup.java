@@ -6,13 +6,20 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 import com.enfotrix.life_changer_services.R;
+import com.enfotrix.life_changer_services.Utils;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.hbb20.CountryCodePicker;
 
 import java.security.SecureRandom;
@@ -28,6 +35,8 @@ public class ActivitySignup extends AppCompatActivity implements View.OnClickLis
     private String completenumber;
     private TextView text_Login;
     private CheckBox checkBox;
+    Utils utils;
+    private FirebaseFirestore firestore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +44,9 @@ public class ActivitySignup extends AppCompatActivity implements View.OnClickLis
         setContentView(R.layout.activity_signup);
 
         iniviews();
+
+        utils = new Utils(this);
+        firestore = FirebaseFirestore.getInstance();
 
         checkBox.setChecked(false);
         //check current state of a check box (true or false)
@@ -44,11 +56,7 @@ public class ActivitySignup extends AppCompatActivity implements View.OnClickLis
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (b == true) {
                     edit_yourreferral.setVisibility(View.VISIBLE);
-                    if (edit_yourreferral.getEditText().getText().toString().isEmpty()) {
-                        edit_yourreferral.setError("Field cannot be empty");
-                    } else if (edit_yourreferral.getEditText().getText().toString().trim().length() < 6) {
-                        edit_yourreferral.setError("Referral Code Must Be 6 Digit");
-                    }
+
                 } else {
 
                 }
@@ -156,20 +164,69 @@ public class ActivitySignup extends AppCompatActivity implements View.OnClickLis
 
     private void movetoOtpScreen() {
 
+        utils.startLoading();
+
         String referralcode = createRandomCode(6);
         String user_name = edit_Full_Name.getEditText().getText().toString().trim();
         String user_email = edit_Email.getEditText().getText().toString().trim();
         String user_password = edit_password.getEditText().getText().toString().trim();
         String user_referral = edit_yourreferral.getEditText().getText().toString().trim();
 
-        Intent otpscreen = new Intent(getApplicationContext(), Activity_AccountInformation.class);
-        otpscreen.putExtra("user_name", user_name);
-        otpscreen.putExtra("user_email", user_email);
-        otpscreen.putExtra("user_password", user_password);
-        otpscreen.putExtra("user_number", completenumber);
-        otpscreen.putExtra("referralcode", referralcode);
-        otpscreen.putExtra("user_referral", user_referral);
-        startActivity(otpscreen);
+//        Intent otpscreen = new Intent(getApplicationContext(), Activity_AccountInformation.class);
+//        otpscreen.putExtra("user_name", user_name);
+//        otpscreen.putExtra("user_email", user_email);
+//        otpscreen.putExtra("user_password", user_password);
+//        otpscreen.putExtra("user_number", completenumber);
+//        otpscreen.putExtra("referralcode", referralcode);
+//        otpscreen.putExtra("user_referral", user_referral);
+//        startActivity(otpscreen);
+
+
+
+        firestore.collection("Customer").whereEqualTo("autoReferral", user_referral).get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            if (!task.getResult().isEmpty()) {
+
+                                Intent otpscreen = new Intent(getApplicationContext(), Activity_AccountInformation.class);
+                                otpscreen.putExtra("user_name", user_name);
+                                otpscreen.putExtra("user_email", user_email);
+                                otpscreen.putExtra("user_password", user_password);
+                                otpscreen.putExtra("user_number", completenumber);
+                                otpscreen.putExtra("referralcode", referralcode);
+                                otpscreen.putExtra("user_referral", user_referral);
+                                startActivity(otpscreen);
+
+                                utils.endLoading();
+
+                            } else {
+
+                                Toast.makeText(getApplicationContext(), "Incorrect Referral", Toast.LENGTH_SHORT).show();
+                                utils.endLoading();
+                            }
+
+//                                 documentReference.set(wrongreferral).addOnSuccessListener(new OnSuccessListener<Void>() {
+//                                    @Override
+//                                    public void onSuccess(Void unused) {
+//                                        startActivity(new Intent(getApplicationContext(), ActivityLogin.class));
+//
+//                                        utils.endLoading();
+//                                    }
+//                                })
+//                                        .addOnFailureListener(new OnFailureListener() {
+//                                            @Override
+//                                            public void onFailure(@NonNull Exception e) {
+//
+//                                                utils.endLoading();
+//                                            }
+//                                        });
+                            // startActivity(new Intent(getApplicationContext(), ActivitySignup.class));
+                            // Toast.makeText(ActivityOtp.this, "Your Referral Code Incorrect", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
 //        finish();
 
     }

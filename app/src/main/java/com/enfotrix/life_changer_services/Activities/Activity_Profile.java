@@ -107,12 +107,17 @@ public class Activity_Profile extends AppCompatActivity implements View.OnClickL
                                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                                         DocumentSnapshot document = task.getResult();
 
-                                        if(document.getString("status").equals("approve"))
-                                        {
-                                            btn_buy.setVisibility(View.GONE);
-                                            txt_membership.setText("Approved");
+                                        if (document.getString("status") != null){
+
+                                            if(document.getString("status").equals("approve"))
+                                            {
+                                                btn_buy.setVisibility(View.GONE);
+                                                txt_membership.setText("Approved");
+
+                                            }
 
                                         }
+
 
 
                                         utils.endLoading();

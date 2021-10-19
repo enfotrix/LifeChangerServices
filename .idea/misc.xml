@@ -7,12 +7,15 @@
         <entry key="..\:/LifeChangerServices/app/src/main/res/drawable/grad.xml" value="0.22552083333333334" />
         <entry key="..\:/LifeChangerServices/app/src/main/res/drawable/otp_numberbg.xml" value="0.22552083333333334" />
         <entry key="..\:/LifeChangerServices/app/src/main/res/layout/activity_account_information.xml" value="0.209375" />
+        <entry key="..\:/LifeChangerServices/app/src/main/res/layout/activity_forget_password_auth.xml" value="0.19907407407407407" />
+        <entry key="..\:/LifeChangerServices/app/src/main/res/layout/activity_item.xml" value="0.19907407407407407" />
         <entry key="..\:/LifeChangerServices/app/src/main/res/layout/activity_login.xml" value="0.209375" />
         <entry key="..\:/LifeChangerServices/app/src/main/res/layout/activity_main.xml" value="0.209375" />
         <entry key="..\:/LifeChangerServices/app/src/main/res/layout/activity_notification.xml" value="0.209375" />
         <entry key="..\:/LifeChangerServices/app/src/main/res/layout/activity_otp.xml" value="0.209375" />
         <entry key="..\:/LifeChangerServices/app/src/main/res/layout/activity_product.xml" value="0.209375" />
         <entry key="..\:/LifeChangerServices/app/src/main/res/layout/activity_profile.xml" value="0.209375" />
+        <entry key="..\:/LifeChangerServices/app/src/main/res/layout/activity_reset_password.xml" value="0.19907407407407407" />
         <entry key="..\:/LifeChangerServices/app/src/main/res/layout/activity_scratch.xml" value="0.209375" />
         <entry key="..\:/LifeChangerServices/app/src/main/res/layout/activity_signup.xml" value="0.209375" />
         <entry key="..\:/LifeChangerServices/app/src/main/res/layout/activity_spin_win2.xml" value="0.209375" />
@@ -21,6 +24,11 @@
         <entry key="..\:/LifeChangerServices/app/src/main/res/layout/activity_with_draw.xml" value="0.209375" />
         <entry key="..\:/LifeChangerServices/app/src/main/res/layout/activity_youtube_video.xml" value="0.209375" />
         <entry key="..\:/LifeChangerServices/app/src/main/res/layout/addcointobalance.xml" value="0.209375" />
+        <entry key="..\:/LifeChangerServices/app/src/main/res/layout/buydilog.xml" value="0.20615384615384616" />
+        <entry key="..\:/LifeChangerServices/app/src/main/res/layout/dialog_another_acount.xml" value="0.19907407407407407" />
+        <entry key="..\:/LifeChangerServices/app/src/main/res/layout/dialog_voucherhu_wr.xml" value="0.19907407407407407" />
+        <entry key="..\:/LifeChangerServices/app/src/main/res/layout/dropdown_list.xml" value="0.209375" />
+        <entry key="..\:/LifeChangerServices/app/src/main/res/layout/fragment__accounts.xml" value="0.209375" />
         <entry key="..\:/LifeChangerServices/app/src/main/res/layout/fragment__store.xml" value="0.209375" />
         <entry key="..\:/LifeChangerServices/app/src/main/res/layout/fragment_earning.xml" value="0.209375" />
       </map>

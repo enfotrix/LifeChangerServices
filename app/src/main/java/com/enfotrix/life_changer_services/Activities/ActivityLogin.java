@@ -83,6 +83,7 @@ public class ActivityLogin extends AppCompatActivity implements View.OnClickList
 
     private void auth(String email, String password) {
 
+        utils.startLoading();
         firestore.collection("Customer").whereEqualTo("email", email)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -98,11 +99,15 @@ public class ActivityLogin extends AppCompatActivity implements View.OnClickList
                                         intent.putExtra("documentID", document.getId());
                                         startActivity(intent);
                                         finish();
+
+                                        utils.endLoading();
                                     } else
+                                        utils.endLoading();
                                         editpassword.setError("Please Enter Correct Password");
 
                                 }
                             } else
+                                utils.endLoading();
                                 edit_Email.setError("Please Enter Correct Email");
                         }
                     }
