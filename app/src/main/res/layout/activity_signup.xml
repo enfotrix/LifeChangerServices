@@ -19,6 +19,7 @@
         android:paddingVertical="@dimen/_10sdp"
         app:cardCornerRadius="@dimen/_16sdp">
 
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -37,15 +38,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/_15sdp"
-                android:layout_marginTop="@dimen/_11sdp"
                 android:layout_marginRight="@dimen/_15sdp"
                 android:focusable="false"
-                android:hint="Full Name"
+                android:hint="User Name"
                 android:textColorHint="@color/txt_color"
                 app:endIconMode="clear_text"
                 app:hintAnimationEnabled="true"
-                app:hintTextColor="@color/white"
-
+                app:hintTextColor="@color/txt_color"
                 app:startIconDrawable="@drawable/ic_baseline_person_24"
                 app:startIconTint="@color/teal_700">
 
@@ -53,10 +52,12 @@
                     android:id="@+id/editt_Full_Name"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:singleLine="true"/>
+                    android:singleLine="true"
+                    />
 
             </com.google.android.material.textfield.TextInputLayout>
+
+
 
             <LinearLayout
                 android:layout_width="match_parent"

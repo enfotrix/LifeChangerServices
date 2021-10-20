@@ -319,7 +319,7 @@
                     android:layout_marginVertical="@dimen/_10sdp"
                     android:layout_gravity="center_horizontal"
                     android:background="@drawable/btn_bg"
-                    android:text="Get Membership"
+                    android:text="N.A"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_14ssp" />
             </LinearLayout>

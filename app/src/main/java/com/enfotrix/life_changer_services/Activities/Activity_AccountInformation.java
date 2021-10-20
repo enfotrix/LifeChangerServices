@@ -19,8 +19,11 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.HashMap;
@@ -57,10 +60,87 @@ public class Activity_AccountInformation extends AppCompatActivity {
             public void onClick(View v) {
                 if (!IsEmptyfields(ac_name, ac_bank, ac_number)) {
 
-                    storedataonFirestore(getIntent().getStringExtra("user_name"), getIntent().getStringExtra("user_number"),
-                            getIntent().getStringExtra("user_email"), getIntent().getStringExtra("user_password"),
-                            getIntent().getStringExtra("user_referral"), getIntent().getStringExtra("referralcode"),
-                            ac_name.getText().toString(), ac_bank.getText().toString(), ac_number.getText().toString());
+                    String acname = ac_name.getText().toString();
+                    String acnumber = ac_bank.getText().toString();
+                    String bcname = ac_number.getText().
+                            toString();
+
+//                    storedataonFirestore(getIntent().getStringExtra("user_name"), getIntent().getStringExtra("user_number"),
+//                            getIntent().getStringExtra("user_email"), getIntent().getStringExtra("user_password"),
+//                            getIntent().getStringExtra("user_referral"), getIntent().getStringExtra("referralcode"),
+//                            ac_name.getText().toString(), ac_bank.getText().toString(), ac_number.getText().toString());
+//
+                    utils.startLoading();
+
+//                    Toast.makeText(getApplicationContext(), acname+"\n"+bcname, Toast.LENGTH_SHORT).show();
+                    CollectionReference usersRef = firestore.collection("Customer");
+                    Query query = usersRef.whereEqualTo("email", getIntent().getStringExtra("user_email"));
+                    query.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                            if (task.isSuccessful()) {
+                                for (DocumentSnapshot documentSnapshot : task.getResult()) {
+                                    String checkemail = documentSnapshot.getString("email");
+
+                                    if (checkemail.equals(getIntent().getStringExtra("user_email"))) {
+
+                                        Toast.makeText(getApplicationContext(), "Email Already Exist", Toast.LENGTH_SHORT).show();
+                                        utils.endLoading();
+
+                                    }
+
+                                }
+                            }
+
+                            if (task.getResult().size() == 0) {
+
+                                DocumentReference documentReference = firestore.collection("Customer").document();
+
+                                Map<String, Object> map = new HashMap<>();
+                                map.put("name", getIntent().getStringExtra("user_name"));
+                                map.put("number", getIntent().getStringExtra("user_number"));
+                                map.put("email", getIntent().getStringExtra("user_email"));
+                                map.put("password", getIntent().getStringExtra("user_password"));
+                                map.put("userReferral", getIntent().getStringExtra("user_referral"));
+                                map.put("picture", "");
+                                map.put("membership", "pending");
+                                map.put("autoReferral", getIntent().getStringExtra("referralcode"));
+
+//                                Toast.makeText(getApplicationContext(), "ncasiniwan", Toast.LENGTH_SHORT).show();
+
+
+                                map.put("ac_title", acname);
+                                map.put("ac_bank", bcname);
+                                map.put("ac_number", acnumber);
+                                map.put("user_balance", "0");
+                                map.put("ecoin", "0");
+                                map.put("ucoin", "0");
+                                map.put("videoStatus", "unwatch");
+
+                                documentReference.set(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void unused) {
+                                        startActivity(new Intent(getApplicationContext(), ActivityLogin.class));
+                                        Toast.makeText(getApplicationContext(), "Congratulation your account created successFully!", Toast.LENGTH_SHORT).show();
+
+                                        utils.endLoading();
+                                    }
+                                })
+                                        .addOnFailureListener(new OnFailureListener() {
+                                            @Override
+                                            public void onFailure(@NonNull Exception e) {
+
+                                                Toast.makeText(getApplicationContext(), "" + e.getMessage(), Toast.LENGTH_SHORT).show();
+                                                utils.endLoading();
+
+                                            }
+
+                                        });
+
+                            }
+                        }
+                    });
+
                 }
 
             }
@@ -93,83 +173,54 @@ public class Activity_AccountInformation extends AppCompatActivity {
         map.put("ucoin", "0");
         map.put("videoStatus", "unwatch");
 
-        Map<String, Object> wrongreferral = new HashMap<>();
-        wrongreferral.put("userReferral", "null");
-        wrongreferral.put("name", uName);
-        wrongreferral.put("number", uNMBR);
-        wrongreferral.put("email", uEmail);
-        wrongreferral.put("address", "");
-        wrongreferral.put("picture", "");
-        wrongreferral.put("membership", "pending");
-        wrongreferral.put("password", uPassword);
-        wrongreferral.put("autoReferral", referralcode);
+        CollectionReference usersRef = firestore.collection("Customer");
+        Query query = usersRef.whereEqualTo("email", uEmail);
+        query.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()) {
+                    for (DocumentSnapshot documentSnapshot : task.getResult()) {
+                        String checkemail = documentSnapshot.getString("email");
 
-        wrongreferral.put("ac_title", ac_name);
-        wrongreferral.put("ac_bank", ac_bank);
-        wrongreferral.put("ac_number", ac_number);
-        wrongreferral.put("user_balance", "0");
-        wrongreferral.put("ecoin", "0");
-        wrongreferral.put("ucoin", "0");
-        wrongreferral.put("videoStatus", "unwatch");
+                        if (checkemail.equals(uEmail)) {
 
-        firestore.collection("Customer").whereEqualTo("autoReferral", user_referral).get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            if (!task.getResult().isEmpty()) {
+                            Toast.makeText(getApplicationContext(), "Email Already Exist", Toast.LENGTH_SHORT).show();
+                            utils.endLoading();
 
-                                documentReference.set(map).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                    @Override
-                                    public void onSuccess(Void unused) {
-                                        startActivity(new Intent(getApplicationContext(), ActivityLogin.class));
-                                        Toast.makeText(getApplicationContext(), "Congratulation your account created successFully!", Toast.LENGTH_SHORT).show();
+                        } else {
 
-                                        utils.endLoading();
-                                    }
-                                })
-                                        .addOnFailureListener(new OnFailureListener() {
-                                            @Override
-                                            public void onFailure(@NonNull Exception e) {
+                            documentReference.set(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void unused) {
+                                    startActivity(new Intent(getApplicationContext(), ActivityLogin.class));
+                                    Toast.makeText(getApplicationContext(), "Congratulation your account created successFully!", Toast.LENGTH_SHORT).show();
 
-                                                Toast.makeText(getApplicationContext(), "" + e.getMessage(), Toast.LENGTH_SHORT).show();
-                                                utils.endLoading();
+                                    utils.endLoading();
+                                }
+                            })
+                                    .addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
 
-                                            }
+                                            Toast.makeText(getApplicationContext(), "" + e.getMessage(), Toast.LENGTH_SHORT).show();
+                                            utils.endLoading();
 
-                                        });
+                                        }
 
-                            } else
-
-                                utils.endLoading();
-                                Toast.makeText(getApplicationContext(), "Incorrect Referral", Toast.LENGTH_SHORT).show();
-//                                documentReference.set(wrongreferral).addOnSuccessListener(new OnSuccessListener<Void>() {
-//                                    @Override
-//                                    public void onSuccess(Void unused) {
-//                                        startActivity(new Intent(getApplicationContext(), ActivityLogin.class));
-//
-//                                        utils.endLoading();
-//                                    }
-//                                })
-//                                        .addOnFailureListener(new OnFailureListener() {
-//                                            @Override
-//                                            public void onFailure(@NonNull Exception e) {
-//
-//                                                utils.endLoading();
-//                                            }
-//                                        });
-                            // startActivity(new Intent(getApplicationContext(), ActivitySignup.class));
-                            // Toast.makeText(ActivityOtp.this, "Your Referral Code Incorrect", Toast.LENGTH_SHORT).show();
+                                    });
                         }
                     }
-                });
+                }
+            }
+        });
+
 
     }
 
     public boolean IsEmptyfields(EditText ac_name, AutoCompleteTextView ac_bank, EditText ac_number) {
         boolean empty = true;
         if (ac_name.getText().toString().isEmpty()) ac_name.setError("Enter Account Tittle");
-        else if (ac_bank.getText().toString().isEmpty()) ac_bank.setError("Enter Bank Name");
+//        else if (ac_bank.getText().toString().isEmpty()) ac_bank.setError("Enter Bank Name");
         else if (ac_number.getText().toString().isEmpty())
             ac_number.setError("Enter User Account Number");
         else empty = false;

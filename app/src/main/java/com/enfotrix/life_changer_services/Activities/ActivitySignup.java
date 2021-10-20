@@ -140,7 +140,28 @@ public class ActivitySignup extends AppCompatActivity implements View.OnClickLis
                     completenumber = mCountryCodePicker.getFullNumberWithPlus().replace("", "").trim();
                     // Toast.makeText(this, ""+completenumber, Toast.LENGTH_SHORT).show();
 
-                    movetoOtpScreen();
+                    if (checkBox.isChecked()) {
+                        movetoOtpScreen();
+
+                    } else {
+
+                        String referralcode = createRandomCode(6);
+                        String user_name = edit_Full_Name.getEditText().getText().toString().trim();
+                        String user_email = edit_Email.getEditText().getText().toString().trim();
+                        String user_password = edit_password.getEditText().getText().toString().trim();
+                        String user_referral = edit_yourreferral.getEditText().getText().toString().trim();
+
+                        Intent otpscreen = new Intent(getApplicationContext(), Activity_AccountInformation.class);
+                        otpscreen.putExtra("user_name", user_name);
+                        otpscreen.putExtra("user_email", user_email);
+                        otpscreen.putExtra("user_password", user_password);
+                        otpscreen.putExtra("user_number", completenumber);
+                        otpscreen.putExtra("referralcode", referralcode);
+                        otpscreen.putExtra("user_referral", user_referral);
+                        startActivity(otpscreen);
+
+                    }
+
                 }
                 break;
             case R.id.text_Login:
@@ -180,7 +201,6 @@ public class ActivitySignup extends AppCompatActivity implements View.OnClickLis
 //        otpscreen.putExtra("referralcode", referralcode);
 //        otpscreen.putExtra("user_referral", user_referral);
 //        startActivity(otpscreen);
-
 
 
         firestore.collection("Customer").whereEqualTo("autoReferral", user_referral).get()

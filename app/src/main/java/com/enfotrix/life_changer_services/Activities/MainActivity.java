@@ -80,21 +80,30 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
+                            if (task.getResult().isEmpty()) {
 
-                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                utils.putIsBuy(false);
 
-                                if (document.getString("status").equals("request")) {
+                            } else {
 
-                                    utils.putIsBuy(false);
+                                for (QueryDocumentSnapshot document : task.getResult()) {
+
+                                    if (document.getString("status").equals("request")) {
+
+                                        utils.putIsBuy(false);
+                                    }
+
+                                    if (document.getString("status").equals("approve")) {
+
+                                        utils.putIsBuy(true);
+
+                                    }
+
                                 }
-
-                                if (document.getString("status").equals("approve")) {
-
-                                    utils.putIsBuy(true);
-
-                                }
-
                             }
+
+
+
 
                         } else {
                             Toast.makeText(getApplicationContext(), "Connection Error", Toast.LENGTH_SHORT).show();

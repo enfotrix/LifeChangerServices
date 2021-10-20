@@ -19,6 +19,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
+import com.bumptech.glide.Glide;
 import com.enfotrix.life_changer_services.R;
 import com.enfotrix.life_changer_services.Utils;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -47,15 +48,12 @@ public class Activity_Profile extends AppCompatActivity implements View.OnClickL
     private Uri filePath;
     private String refUri;
 
-
-
-
     private AppCompatButton btn_buy;
     private FirebaseFirestore firestore;
     private Utils utils;
-    private LinearLayout lay_refer,lay_team;
-    private TextView txt_referral, txtname, txt_cnic, txt_number, txt_email,txt_membership;
-    private ImageView img_logout,img_edit,imageprofile;
+    private LinearLayout lay_refer, lay_team;
+    private TextView txt_referral, txtname, txt_cnic, txt_number, txt_email, txt_membership;
+    private ImageView img_logout, img_edit, imageprofile;
 
 
     private FirebaseStorage storage;
@@ -86,11 +84,12 @@ public class Activity_Profile extends AppCompatActivity implements View.OnClickL
                         DocumentSnapshot document = task.getResult();
 
                         String name = document.getString("name");
-                        String cnic = document.getString("cnic");
+                        String cnic = document.getString("ac_number");
                         String number = document.getString("number");
                         String email = document.getString("email");
                         //String address = document.getString("address");
                         String referral = document.getString("autoReferral");
+                        String profilePic = document.getString("picture");
 
                         txtname.setText(name);
                         txt_cnic.setText(cnic);
@@ -98,26 +97,34 @@ public class Activity_Profile extends AppCompatActivity implements View.OnClickL
                         txt_email.setText(email);
                         txt_referral.setText(referral);
 
+                        if (profilePic != null) {
+                            Glide.with(getApplicationContext()).load(profilePic).into(imageprofile);
+                        }
 
 
                         firestore.collection("Customer").document(utils.getToken())
-                                .collection("Transactions").document( utils.getToken()).get()
+                                .collection("Transactions").document(utils.getToken()).get()
                                 .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                                     @Override
                                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                                         DocumentSnapshot document = task.getResult();
 
-                                        if (document.getString("status") != null){
+                                        if (document.getString("status") != null) {
 
-                                            if(document.getString("status").equals("approve"))
-                                            {
+                                            if (document.getString("status").equals("approve")) {
                                                 btn_buy.setVisibility(View.GONE);
                                                 txt_membership.setText("Approved");
+                                                utils.putIsBuy(true);
+
+                                            }
+                                            if (document.getString("status").equals("request")) {
+                                                btn_buy.setVisibility(View.GONE);
+                                                txt_membership.setText("Membership Pending");
+                                                utils.putIsBuy(false);
 
                                             }
 
                                         }
-
 
 
                                         utils.endLoading();
@@ -171,8 +178,8 @@ public class Activity_Profile extends AppCompatActivity implements View.OnClickL
             case R.id.btn_buy:
                 startActivity(new Intent(getApplicationContext(), Activity_Transaction.class));
                 break;
-                case R.id.imageprofile:
-                    imgProfile();
+            case R.id.imageprofile:
+                imgProfile();
                 break;
             case R.id.img_edit:
             case R.id.lay_team:
@@ -254,7 +261,6 @@ public class Activity_Profile extends AppCompatActivity implements View.OnClickL
     }
 
 
-
     private void updateUser(Uri filePath) {
 
 
@@ -263,8 +269,7 @@ public class Activity_Profile extends AppCompatActivity implements View.OnClickL
         progressDialog.show();
 
 
-
-        StorageReference ref = storageReference.child("images/"+ UUID.randomUUID().toString());
+        StorageReference ref = storageReference.child("images/" + UUID.randomUUID().toString());
         ref.putFile(filePath)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
@@ -273,17 +278,14 @@ public class Activity_Profile extends AppCompatActivity implements View.OnClickL
                             @Override
                             public void onSuccess(Uri uri) {
 
-                                Map<String,Object> m= new HashMap<>();
-                                m.put("picture",uri.toString());
-
-
-
+                                Map<String, Object> m = new HashMap<>();
+                                m.put("picture", uri.toString());
 
 
                                 firestore.collection("Customer").document(utils.getToken()).update(m)
                                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                                             @Override
-                                            public void onComplete(@NonNull  Task<Void> task) {
+                                            public void onComplete(@NonNull Task<Void> task) {
 
                                                 progressDialog.dismiss();
                                                 Toast.makeText(Activity_Profile.this, "Updated Successfully", Toast.LENGTH_SHORT).show();
@@ -293,17 +295,14 @@ public class Activity_Profile extends AppCompatActivity implements View.OnClickL
                                         })
                                         .addOnFailureListener(new OnFailureListener() {
                                             @Override
-                                            public void onFailure(@NonNull  Exception e) {
+                                            public void onFailure(@NonNull Exception e) {
                                                 Toast.makeText(Activity_Profile.this, "Connection Error", Toast.LENGTH_SHORT).show();
                                             }
                                         });
 
 
-
-
                             }
                         });
-
 
 
                     }
@@ -319,17 +318,14 @@ public class Activity_Profile extends AppCompatActivity implements View.OnClickL
                 .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
                     @Override
                     public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
-                        double progress = (100.0*taskSnapshot.getBytesTransferred()/taskSnapshot
+                        double progress = (100.0 * taskSnapshot.getBytesTransferred() / taskSnapshot
                                 .getTotalByteCount());
-                        progressDialog.setMessage("Uploading Data "+(int)progress+"%");
+                        progressDialog.setMessage("Uploading Data " + (int) progress + "%");
                     }
                 });
 
 
-
-
     }
-
 
 
     /////////////////////////  IMAGE  //////////////////
@@ -339,20 +335,18 @@ public class Activity_Profile extends AppCompatActivity implements View.OnClickL
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST);
     }
+
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK
-                && data != null && data.getData() != null )
-        {
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK
+                && data != null && data.getData() != null) {
             filePath = data.getData();
             try {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), filePath);
                 imageprofile.setImageBitmap(bitmap);
 
                 updateUser(filePath);
-            }
-            catch (IOException e)
-            {
+            } catch (IOException e) {
                 e.printStackTrace();
             }
         }
