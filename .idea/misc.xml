@@ -3,12 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/LifeChangerServices/app/src/main/res/drawable/addcart_bg.xml" value="0.22205128205128205" />
+        <entry key="..\:/LifeChangerServices/app/src/main/res/drawable/btn_bg.xml" value="0.22552083333333334" />
+        <entry key="..\:/LifeChangerServices/app/src/main/res/drawable/card_shadow.xml" value="0.22552083333333334" />
         <entry key="..\:/LifeChangerServices/app/src/main/res/drawable/clickable_text_back.xml" value="0.22552083333333334" />
         <entry key="..\:/LifeChangerServices/app/src/main/res/drawable/grad.xml" value="0.22552083333333334" />
         <entry key="..\:/LifeChangerServices/app/src/main/res/drawable/otp_numberbg.xml" value="0.22552083333333334" />
+        <entry key="..\:/LifeChangerServices/app/src/main/res/drawable/shape_line.xml" value="0.21481481481481482" />
+        <entry key="..\:/LifeChangerServices/app/src/main/res/layout/activity_.xml" value="0.1953125" />
         <entry key="..\:/LifeChangerServices/app/src/main/res/layout/activity_account_information.xml" value="0.209375" />
         <entry key="..\:/LifeChangerServices/app/src/main/res/layout/activity_forget_password_auth.xml" value="0.19907407407407407" />
-        <entry key="..\:/LifeChangerServices/app/src/main/res/layout/activity_item.xml" value="0.19907407407407407" />
+        <entry key="..\:/LifeChangerServices/app/src/main/res/layout/activity_item.xml" value="0.33" />
         <entry key="..\:/LifeChangerServices/app/src/main/res/layout/activity_login.xml" value="0.209375" />
         <entry key="..\:/LifeChangerServices/app/src/main/res/layout/activity_main.xml" value="0.209375" />
         <entry key="..\:/LifeChangerServices/app/src/main/res/layout/activity_notification.xml" value="0.209375" />
@@ -30,7 +35,13 @@
         <entry key="..\:/LifeChangerServices/app/src/main/res/layout/dropdown_list.xml" value="0.209375" />
         <entry key="..\:/LifeChangerServices/app/src/main/res/layout/fragment__accounts.xml" value="0.209375" />
         <entry key="..\:/LifeChangerServices/app/src/main/res/layout/fragment__store.xml" value="0.209375" />
+        <entry key="..\:/LifeChangerServices/app/src/main/res/layout/fragment_cart.xml" value="0.209375" />
         <entry key="..\:/LifeChangerServices/app/src/main/res/layout/fragment_earning.xml" value="0.209375" />
+        <entry key="..\:/LifeChangerServices/app/src/main/res/layout/fragment_sell__product.xml" value="0.209375" />
+        <entry key="..\:/LifeChangerServices/app/src/main/res/layout/item_list.xml" value="0.33" />
+        <entry key="..\:/LifeChangerServices/app/src/main/res/layout/lottie_dialog.xml" value="0.209375" />
+        <entry key="..\:/LifeChangerServices/app/src/main/res/layout/product_list.xml" value="0.18981481481481483" />
+        <entry key="..\:/LifeChangerServices/app/src/main/res/menu/bottom_nav.xml" value="0.18611111111111112" />
       </map>
     </option>
   </component>

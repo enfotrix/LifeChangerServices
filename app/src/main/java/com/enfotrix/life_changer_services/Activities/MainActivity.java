@@ -8,9 +8,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.enfotrix.life_changer_services.OnlineStore.Fragment_Cart;
 import com.enfotrix.life_changer_services.OnlineEarning.FragmentEarning;
 import com.enfotrix.life_changer_services.OnlineStore.Fragment_Store;
 import com.enfotrix.life_changer_services.R;
+import com.enfotrix.life_changer_services.SellProduct.FragmentSell_Product;
 import com.enfotrix.life_changer_services.Utils;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -56,6 +58,11 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 getSupportFragmentManager().beginTransaction().replace(R.id.Frame_layout, new FragmentEarning()).addToBackStack(null).commit();
 
                 break;
+            case R.id.menu_sellitem:
+
+                getSupportFragmentManager().beginTransaction().replace(R.id.Frame_layout, new FragmentSell_Product()).addToBackStack(null).commit();
+
+                break;
             case R.id.menu_service:
                 //itemView.removeView(view);
                 // getSupportFragmentManager().beginTransaction().replace(R.id.Frame_layout, new Fragment_Services()).addToBackStack(null).commit();
@@ -63,8 +70,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
                 break;
             case R.id.menu_account:
-                Toast.makeText(getApplicationContext(), "Available Soon...", Toast.LENGTH_SHORT).show();
-                // getSupportFragmentManager().beginTransaction().replace(R.id.Frame_layout, new Fragment_Accounts()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.Frame_layout, new Fragment_Cart()).commit();
                 break;
             default:
                 break;
@@ -101,8 +107,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
                                 }
                             }
-
-
 
 
                         } else {

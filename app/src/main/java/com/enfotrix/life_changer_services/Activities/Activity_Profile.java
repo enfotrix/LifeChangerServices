@@ -112,13 +112,13 @@ public class Activity_Profile extends AppCompatActivity implements View.OnClickL
                                         if (document.getString("status") != null) {
 
                                             if (document.getString("status").equals("approve")) {
-                                                btn_buy.setVisibility(View.GONE);
+                                                btn_buy.setEnabled(false);
                                                 txt_membership.setText("Approved");
                                                 utils.putIsBuy(true);
 
                                             }
                                             if (document.getString("status").equals("request")) {
-                                                btn_buy.setVisibility(View.GONE);
+                                                btn_buy.setEnabled(false);
                                                 txt_membership.setText("Membership Pending");
                                                 utils.putIsBuy(false);
 

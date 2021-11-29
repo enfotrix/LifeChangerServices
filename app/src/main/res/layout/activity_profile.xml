@@ -306,7 +306,7 @@
                         android:layout_marginLeft="@dimen/_20sdp"
                         android:textSize="@dimen/_14sdp"
                         android:textStyle="bold"
-                        android:text="Pending"></TextView>
+                        android:text="N.A"></TextView>
                 </LinearLayout>
 
 
@@ -319,7 +319,7 @@
                     android:layout_marginVertical="@dimen/_10sdp"
                     android:layout_gravity="center_horizontal"
                     android:background="@drawable/btn_bg"
-                    android:text="N.A"
+                    android:text="Get Membership"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_14ssp" />
             </LinearLayout>

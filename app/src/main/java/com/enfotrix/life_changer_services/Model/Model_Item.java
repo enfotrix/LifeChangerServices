@@ -4,7 +4,17 @@ public class Model_Item {
 
     String itemname;
     String itemprice;
-    int img;
+    String img;
+    String discoutnprice;
+    String succatid;
+
+    public String getSuccatid() {
+        return succatid;
+    }
+
+    public void setSuccatid(String succatid) {
+        this.succatid = succatid;
+    }
 
     public String getItemname() {
         return itemname;
@@ -22,11 +32,19 @@ public class Model_Item {
         this.itemprice = itemprice;
     }
 
-    public int getImg() {
+    public String getImg() {
         return img;
     }
 
-    public void setImg(int img) {
+    public void setImg(String img) {
         this.img = img;
+    }
+
+    public String getDiscoutnprice() {
+        return discoutnprice;
+    }
+
+    public void setDiscoutnprice(String discoutnprice) {
+        this.discoutnprice = discoutnprice;
     }
 }

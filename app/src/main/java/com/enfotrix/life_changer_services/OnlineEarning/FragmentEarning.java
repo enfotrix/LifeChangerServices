@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -15,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
 
+import com.enfotrix.life_changer_services.Activities.Activity_Notification;
 import com.enfotrix.life_changer_services.Activities.Activity_Profile;
 import com.enfotrix.life_changer_services.Activities.MainActivity;
 import com.enfotrix.life_changer_services.R;
@@ -44,7 +46,8 @@ public class FragmentEarning extends Fragment implements RewardedVideoAdListener
     AppCompatButton btn_withdraw;
     private FirebaseFirestore firestore;
     private String e_coin, ecoinrate, ucoinrate, user_balance, u_coin;
-    private LinearLayout lay_ecoin, lay_ucoin,lay_withdraw;
+    private LinearLayout lay_ecoin, lay_ucoin, lay_withdraw;
+    private ImageView img_histroy, img_profile;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -145,6 +148,21 @@ public class FragmentEarning extends Fragment implements RewardedVideoAdListener
                 } else {
                     addcointouserBalance("ucoins");
                 }*/
+            }
+        });
+
+        img_histroy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getContext(), Activity_Notification.class));
+
+            }
+        });
+
+        img_profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getContext(), Activity_Profile.class));
             }
         });
 
@@ -376,6 +394,9 @@ public class FragmentEarning extends Fragment implements RewardedVideoAdListener
         lay_ecoin = view.findViewById(R.id.lay_ecoin);
 
         lay_withdraw = view.findViewById(R.id.lay_withdraw);
+
+        img_profile = view.findViewById(R.id.img_profile);
+        img_histroy = view.findViewById(R.id.img_histroy);
 
         Animation animationUtils = AnimationUtils.loadAnimation(getContext(), R.anim.zoom_in);
         //btn_withdraw.startAnimation(animationUtils);

@@ -11,9 +11,9 @@ import android.view.WindowManager;
 import androidx.annotation.NonNull;
 
 
-public class lottiedialog extends Dialog {
+public class Lottiedialog extends Dialog {
 
-    public lottiedialog(@NonNull  Context context) {
+    public Lottiedialog(@NonNull  Context context) {
         super(context);
         WindowManager.LayoutParams wlmp = getWindow().getAttributes();
 

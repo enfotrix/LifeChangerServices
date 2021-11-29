@@ -6,12 +6,11 @@
     android:layout_height="match_parent"
     android:background="@color/gray"
     tools:context=".Activities.Activity_Transaction">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-
-
 
 
         <TextView
@@ -19,24 +18,100 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/_12sdp"
             android:layout_marginTop="@dimen/_10sdp"
-            android:text="Transfer the amount of 500 Rs on given below account number (Jazzcash):"
+            android:text="Transfer the amount of 500 Rs on given below account number:"
             android:textSize="@dimen/_14ssp" />
+
         <View
             android:layout_width="match_parent"
             android:layout_height="@dimen/_1sdp"
-            android:background="@drawable/shape_line"
-            android:layout_marginTop="@dimen/_3sdp"></View>
+            android:layout_marginTop="@dimen/_3sdp"
+            android:background="@drawable/shape_line"></View>
 
-        <TextView
-            android:layout_width="wrap_content"
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginHorizontal="@dimen/_12sdp"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:text="0300-0000000"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_16sdp" />
+            android:layout_marginHorizontal="@dimen/_5sdp"
+            android:layout_marginVertical="@dimen/_10sdp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="@dimen/_10sdp"
+            app:cardElevation="@dimen/_16sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingVertical="@dimen/_5sdp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="jazz Cash"
+                        android:textSize="@dimen/_14ssp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Muhammad Mujahid"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_14ssp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto"
+                        android:text="03046889162"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_14ssp" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="@dimen/_2sdp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:background="@color/black" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingVertical="@dimen/_5sdp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Bank Account"
+                        android:textSize="@dimen/_14ssp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Life Changer"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_14ssp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto"
+                        android:text="00246274"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_14ssp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/edit_lay_transaction"
@@ -44,7 +119,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/_15sdp"
-            android:layout_marginTop="@dimen/_5sdp"
             android:layout_marginRight="@dimen/_15sdp"
             android:focusable="false"
             android:hint="Transaction ID"
@@ -59,73 +133,45 @@
                 android:id="@+id/editt_Full_Name"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:singleLine="true"
-                 />
+                android:singleLine="true" />
 
         </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/edit_lay_amount"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/_15sdp"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:layout_marginRight="@dimen/_15sdp"
-            android:focusable="false"
-            android:hint="Amount"
-            android:textColorHint="@color/txt_color"
-            app:endIconMode="clear_text"
-            app:hintAnimationEnabled="true"
-            app:hintTextColor="@color/txt_color"
-            app:startIconDrawable="@drawable/ic_baseline_money_24"
-            app:startIconTint="@color/teal_700">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editt_amount"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:singleLine="true"
-               />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
 
         <androidx.cardview.widget.CardView
+            app:cardElevation="@dimen/_16sdp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginHorizontal="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_10sdp"
             app:cardCornerRadius="@dimen/_10sdp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/_5sdp"
                 android:gravity="center"
-                android:orientation="vertical"
-                android:layout_marginBottom="@dimen/_5sdp">
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
                     android:orientation="horizontal">
+
                     <CheckBox
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Terms And Condition"
 
-                        android:textSize="@dimen/_14ssp" >
-                    </CheckBox>
+                        android:textSize="@dimen/_14ssp"></CheckBox>
 
                 </LinearLayout>
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_1sdp"
-                    android:background="@drawable/shape_line">
-                </View>
+                    android:background="@drawable/shape_line"></View>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -133,8 +179,7 @@
                     android:layout_marginHorizontal="@dimen/_5sdp"
                     android:layout_marginTop="@dimen/_5sdp"
                     android:text="@string/terms"
-                    android:textColor="@color/black_m"
-                    />
+                    android:textColor="@color/black_m" />
 
 
             </LinearLayout>
@@ -153,8 +198,6 @@
             android:textSize="@dimen/_14ssp" />
 
     </LinearLayout>
-
-
 
 
 </ScrollView>

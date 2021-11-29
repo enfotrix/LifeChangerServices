@@ -13,7 +13,10 @@
         android:roundIcon="@mipmap/luncher_logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.LifeChangerServices">
-        <activity android:name=".Activities.Activity_AccountInformation"></activity>
+        <activity
+            android:name=".SellProduct.Activity_OldProduct"
+            android:exported="true" />
+        <activity android:name=".Activities.Activity_AccountInformation" />
         <activity android:name=".OnlineEarning.Activity_WithDraw" />
         <activity android:name=".OnlineEarning.Activity_YoutubeVideo" />
         <activity android:name=".Activities.Activity_Notification" />
@@ -27,9 +30,7 @@
         <activity android:name=".Activities.ActivityResetPassword" />
         <activity android:name=".Activities.ActivitySignup" />
         <activity android:name=".Activities.ActivityForgetPasswordAuth" />
-        <activity android:name=".Activities.ActivityLogin">
-
-        </activity>
+        <activity android:name=".Activities.ActivityLogin"></activity>
         <activity android:name=".Activities.Activity_Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -37,9 +38,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activities.MainActivity">
-
-        </activity>
+        <activity android:name=".Activities.MainActivity"></activity>
 
         <meta-data
             android:name="preloaded_fonts"

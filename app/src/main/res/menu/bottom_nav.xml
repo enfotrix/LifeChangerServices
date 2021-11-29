@@ -4,8 +4,9 @@
     <item
         android:id="@+id/menu_store"
         android:icon="@drawable/ic_baseline_add_shopping_cart_24"
-        android:title="Store"
-        />
+        android:title="Store" />
+
+
 
     <item
         android:id="@+id/menu_earn"
@@ -13,13 +14,18 @@
         android:title="Earning" />
 
     <item
+        android:id="@+id/menu_sellitem"
+        android:icon="@drawable/ic_baseline_add_circle_outline_24"
+        android:title="Sell" />
+
+    <item
         android:id="@+id/menu_service"
         android:icon="@drawable/ic_baseline_book_online_24"
         android:title="Services" />
     <item
         android:id="@+id/menu_account"
-        android:icon="@drawable/ic_baseline_account_balance_24"
-        android:title="Accounts"
+        android:icon="@drawable/ic_baseline_shopping_cart_24"
+        android:title="Cart"
 
         />
 </menu>

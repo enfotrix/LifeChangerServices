@@ -25,7 +25,7 @@ import java.util.Map;
 public class Activity_Transaction extends AppCompatActivity implements View.OnClickListener {
 
     private AppCompatButton btn_request;
-    private TextInputLayout edit_lay_transaction, edit_lay_amount;
+    private TextInputLayout edit_lay_transaction;
     private FirebaseFirestore firestore;
     private Utils utils;
 
@@ -45,7 +45,6 @@ public class Activity_Transaction extends AppCompatActivity implements View.OnCl
 
         btn_request = findViewById(R.id.btn_request);
         edit_lay_transaction = findViewById(R.id.edit_lay_transaction);
-        edit_lay_amount = findViewById(R.id.edit_lay_amount);
 
         Animation animationUtils = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.zoom_in);
         btn_request.startAnimation(animationUtils);
@@ -59,19 +58,19 @@ public class Activity_Transaction extends AppCompatActivity implements View.OnCl
         switch (view.getId()) {
             case R.id.btn_request:
                 if (checkEmpty()) {
-                    addtransaction(edit_lay_transaction.getEditText().getText().toString().trim(), edit_lay_amount.getEditText().getText().toString().trim());
+                    addtransaction(edit_lay_transaction.getEditText().getText().toString().trim());
                 }
                 break;
         }
     }
 
-    private void addtransaction(String transaction, String amount) {
+    private void addtransaction(String transaction) {
 
         DocumentReference documentReference = firestore.collection("Customer").document(utils.getToken())
                 .collection("Transactions").document(utils.getToken());
         Map<String, Object> map = new HashMap<>();
         map.put("tid", transaction);
-        map.put("amount", amount);
+        map.put("amount", "500");
         map.put("status", "request");
         map.put("userID", utils.getToken());
 
@@ -123,8 +122,6 @@ public class Activity_Transaction extends AppCompatActivity implements View.OnCl
         Boolean isEmpty = false;
         if (edit_lay_transaction.getEditText().getText().toString().trim().isEmpty())
             edit_lay_transaction.setError("Please Enter Transaction");
-        else if (edit_lay_amount.getEditText().getText().toString().trim().isEmpty())
-            edit_lay_amount.setError("Please Enter Amount");
         else isEmpty = true;
         return isEmpty;
     }

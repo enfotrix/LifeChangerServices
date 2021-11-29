@@ -5,8 +5,9 @@
     <string name="resend_otp_again"><u>RESEND OTP</u></string>
 
     <!--  admob ads id  -->
-    <string name="APP_ID">ca-app-pub-3940256099942544~3347511713</string>
-    <string name="ADMOB_UNIT_ID">ca-app-pub-3940256099942544/5224354917</string>
+
+    <string name="APP_ID">ca-app-pub-6194356317495193~9401784740</string>
+    <string name="ADMOB_UNIT_ID">ca-app-pub-6194356317495193/1220343713</string>
     <string name="terms">
         1) App price is 500 <br></br>
         2) On earning activity and upon your referalls you would get coins which would be converted into rupees.<br></br>
@@ -18,5 +19,14 @@
         8. The withdraw will be given to you in 3-7 working days <br></br>
         9. For doing any of the fraud your account would be block and your balance would be  confiscated.
     </string>
+    <string name="text1">Mobiles!</string>
+    <string name="text2">Vehicles!</string>
+    <string name="text3">Bikes!</string>
+    <string name="text4">Property!</string>
+    <string name="text5">Animals!</string>
+    <string name="text6">Cycle!</string>
+    <string name="text7">Kidz!</string>
+    <string name="text8">Electronic!</string>
+    <string name="text9">Fashion And Beauty!</string>
 
 </resources>

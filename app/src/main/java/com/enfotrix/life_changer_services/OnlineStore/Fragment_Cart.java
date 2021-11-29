@@ -1,4 +1,4 @@
-package com.enfotrix.life_changer_services.Fragment;
+package com.enfotrix.life_changer_services.OnlineStore;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment;
 
 import com.enfotrix.life_changer_services.R;
 
-public class Fragment_Accounts extends Fragment {
+public class Fragment_Cart extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

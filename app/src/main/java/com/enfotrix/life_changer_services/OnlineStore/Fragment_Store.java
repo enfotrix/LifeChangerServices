@@ -20,6 +20,7 @@ import androidx.viewpager2.widget.ViewPager2;
 import com.enfotrix.life_changer_services.Activities.Activity_Notification;
 import com.enfotrix.life_changer_services.Activities.Activity_Profile;
 import com.enfotrix.life_changer_services.R;
+import com.enfotrix.life_changer_services.SellProduct.Activity_OldProduct;
 import com.enfotrix.life_changer_services.SliderAdapter;
 import com.enfotrix.life_changer_services.Slider_Model;
 
@@ -27,12 +28,12 @@ import java.util.ArrayList;
 
 public class Fragment_Store extends Fragment implements View.OnClickListener {
 
-    private LinearLayout lay_store;
+    private LinearLayout lay_store, lay_buyer;
     private ViewPager2 viewPagerSlider;
     private SliderAdapter sliderAdapter;
     private ArrayList<Slider_Model> sliderModelArrayList = new ArrayList<>();
     private LinearLayout layDots;
-    private ImageView img_histroy, img_profile, img_store;
+    private ImageView img_histroy, img_profile, img_store,img_oldproduct;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -106,15 +107,19 @@ public class Fragment_Store extends Fragment implements View.OnClickListener {
         img_profile = view.findViewById(R.id.img_profile);
         img_histroy = view.findViewById(R.id.img_histroy);
         img_store = view.findViewById(R.id.img_store);
+        lay_buyer = view.findViewById(R.id.lay_buyer);
+        img_oldproduct = view.findViewById(R.id.img_stor);
 
         Animation animationUtils = AnimationUtils.loadAnimation(getContext(), R.anim.zoom_in);
         img_profile.startAnimation(animationUtils);
         img_histroy.startAnimation(animationUtils);
-        img_store.startAnimation(animationUtils);
+//        img_store.startAnimation(animationUtils);
+//        img_oldproduct.startAnimation(animationUtils);
 
         lay_store.setOnClickListener(this);
         img_profile.setOnClickListener(this);
         img_histroy.setOnClickListener(this);
+        lay_buyer.setOnClickListener(this);
     }
 
     @Override
@@ -128,6 +133,9 @@ public class Fragment_Store extends Fragment implements View.OnClickListener {
                 break;
             case R.id.img_histroy:
                 startActivity(new Intent(getContext(), Activity_Notification.class));
+                break;
+            case R.id.lay_buyer:
+                startActivity(new Intent(getContext(), Activity_OldProduct.class));
                 break;
             default:
                 break;
